@@ -32,3 +32,6 @@ best_move(Board, Move) :-
     (center_move(Board, Move), !);
     (corner_move(Board, Move), !);
     first_available(Board, Move).
+
+% how to run
+% best_move([o,x,o,empty, x, empty, empty,empty, empty], Move)
