@@ -45,3 +45,10 @@ forward_chain(Patient) :-
     % Step 2: Output the diagnosis
     write('Patient has been diagnosed with: '),
     write(Disease), nl.
+
+% how to run
+
+% assert(diagnosed(p1, fever)).
+% assert(diagnosed(p1, chills)).
+% assert(diagnosed(p1, headache)).
+% forward_chain(p1).
