@@ -16,3 +16,6 @@ bayes(Weather, Evidence, Posterior) :-
     prior(Weather, Prior),
     probability(Evidence, GivenProb),
     Posterior is Prior * GivenProb.
+
+% how to run
+% bayes(rainy, cloudy_given_rainy, P).
