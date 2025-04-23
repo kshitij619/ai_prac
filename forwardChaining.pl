@@ -1,4 +1,3 @@
-% Facts: Diseases and their symptoms
 has_symptom(flu, fever).
 has_symptom(flu, cough).
 has_symptom(flu, headache).
@@ -12,7 +11,6 @@ has_symptom(malaria, fever).
 has_symptom(malaria, chills).
 has_symptom(malaria, headache).
 
-% Facts: Patient symptoms (These are dynamic facts)
 :- dynamic has_symptom/2.
 
 % Rules for diagnosis using forward chaining
@@ -36,19 +34,15 @@ diagnose(Patient, malaria) :-
     has_symptom(Patient, chills),
     has_symptom(Patient, headache).
 
-% Forward chaining rule to add new facts based on symptoms
 forward_chain(Patient) :-
-    % Step 1: Check symptoms and add to knowledge base
     diagnose(Patient, Disease),
-    assert(diagnosed(Patient, Disease)), % Add to facts the disease diagnosis
-
-    % Step 2: Output the diagnosis
+    assertz(diagnosed(Patient, Disease)), % Add to facts the disease diagnosis
     write('Patient has been diagnosed with: '),
     write(Disease), nl.
 
 % how to run
 
-% assert(diagnosed(p1, fever)).
-% assert(diagnosed(p1, chills)).
-% assert(diagnosed(p1, headache)).
+% assertz(has_symptom(p1, fever)).
+% assertz(has_symptom(p1, chills)).
+% assertz(has_symptom(p1, headache)).
 % forward_chain(p1).
